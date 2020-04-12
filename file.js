@@ -1,0 +1,1 @@
+import img from './src/assets/daftcode.png;
