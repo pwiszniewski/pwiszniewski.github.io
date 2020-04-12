@@ -9,20 +9,33 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: [
-					'sass-loader',,
-					'file-loader'
-					{
-						loader: 'babel-loader',
-						options: {
-							presets: ['@babel/preset-env']
-						}
-					}
-				]
-			}
+				{
+	                test: /\.js$/,
+	                exclude: /node_modules/,
+	                use: {
+	                    loader: 'babel-loader',
+	                    options: {
+	                        presets: ['@babel/preset-env']
+	                    }
+	                }
+	            },
+	            {
+                test: /\.s[ac]ss$/,
+                use: [
+
+                  'style-loader',
+                  'css-loader',
+                  'sass-loader',
+                ],
+              },
+              {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+              }
 		]
 	},
 	plugins: [
